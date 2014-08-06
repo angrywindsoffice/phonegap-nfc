@@ -101,6 +101,17 @@ public class Util {
         return json;
     }
 
+    static JSONArray byteArrayToHexJSON(byte[] bytes) {
+        JSONArray json = new JSONArray();
+        for (byte aByte : bytes) {
+            // unsigned 
+            int result = aByte&0xff;
+            //HEX
+        	json.put(Integer.toHexString(result));
+        }
+        return json;
+    }
+    
     static byte[] jsonToByteArray(JSONArray json) throws JSONException {
         byte[] b = new byte[json.length()];
         for (int i = 0; i < json.length(); i++) {
